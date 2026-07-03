@@ -2,9 +2,12 @@ const accountModel=require('../models/account.model');
 
 async function createAccountController(req,res){
     const user= req.user;
+    const { currency, status } = req.body;
 
     const account=await accountModel.create({
-        user:user._id
+        user:user._id,
+        currency: currency || "INR",
+        status: status || "ACTIVE"
     })
 
     res.status(201).json({

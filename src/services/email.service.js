@@ -67,30 +67,30 @@ const sendEmail = async (to, subject, text, html) => {
   }
 };
 
-async function sendRegistrationEmail(userEmail,name){
-  const subject='welcome to Backend Ledger!';
-  const text=`Hello, ${name} \n \n Thank you for registering at Backend Ledger.`
-  const html=`<p>Hello ${name},</p><p>Thank you for registering at Backend Ledger.</p>`;
+async function sendRegistrationEmail(userEmail, name) {
+  const subject = 'welcome to Backend Ledger!';
+  const text = `Hello, ${name} \n \n Thank you for registering at Backend Ledger.`
+  const html = `<p>Hello ${name},</p><p>Thank you for registering at Backend Ledger.</p>`;
 
-  await sendEmail(userEmail,subject,text,html);
+  await sendEmail(userEmail, subject, text, html);
 }
 
 
-async function sendTransactionEmail(userEmail,name,amount,toAccount){
-  const subject='Transaction Completed';
-  const text=`Your account has been debit by amount:${amount} to account ${toAccount}`
-  const html=`<p>Thank for choosing our service .we provide smooth encrypted transaction.</p>`
-  await sendEmail(userEmail,subject,text,html);
+async function sendTransactionEmail(userEmail, name, amount, toAccount) {
+  const subject = 'Transaction Completed';
+  const text = `Your account has been debit by amount:${amount} to account ${toAccount}`
+  const html = `<p>Thank for choosing our service .we provide smooth encrypted transaction.</p>`
+  await sendEmail(userEmail, subject, text, html);
 }
 
 
-async function sendTransactionFailureEmail(userEmail,name,amount,toAccount){
-  const subject='Transaction Completed';
-  const text=`we regret to Inform you that your transaction of ${amount} to account: ${account} is failed`
-  const html=`<p>We regret for that</p>`
-  await sendEmail(userEmail,subject,text,html);
+async function sendTransactionFailureEmail(userEmail, name, amount, toAccount) {
+  const subject = 'Transaction Completed';
+  const text = `we regret to Inform you that your transaction of ${amount} to account: ${toAccount} is failed`
+  const html = `<p>We regret for that</p>`
+  await sendEmail(userEmail, subject, text, html);
 }
 
-module.exports = {sendRegistrationEmail,sendTransactionFailureEmail,sendTransactionEmail};
+module.exports = { sendRegistrationEmail, sendTransactionFailureEmail, sendTransactionEmail };
 
 // module.exports = transporter;
