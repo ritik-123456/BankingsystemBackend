@@ -145,8 +145,10 @@ async function createTransaction(req, res) {
 
 
     //10.send email notification
+    const remBalance = await fromUserAccount.getBalance();
+    const currency = fromUserAccount.currency || 'INR';
 
-    await emailService.sendTransactionEmail(req.user.email, req.user.name, amount, toAccount)
+    await emailService.sendTransactionEmail(req.user.email, req.user.name, amount, toAccount, remBalance, currency);
 
     return res.status(201).json({
         message: "Transaction completed successfully",
